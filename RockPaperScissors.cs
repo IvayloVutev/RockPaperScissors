@@ -12,10 +12,7 @@ namespace RockPaperScissors
     {
         static void Main(string[] args)
         {
-
-            ConsoleColor background = Console.BackgroundColor;
-            ConsoleColor foreground = Console.ForegroundColor;
-
+        
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.BackgroundColor = ConsoleColor.Black;
 
@@ -32,6 +29,7 @@ namespace RockPaperScissors
 
             while (gameCounter > 0)
             {
+                Console.ForegroundColor = ConsoleColor.Blue;
                 Console.Write("Choose [r]ock, [p]aper or [s]cissors: ");
                 string playerMove = Console.ReadLine();
 
@@ -51,7 +49,7 @@ namespace RockPaperScissors
                 {
                     Console.ForegroundColor = ConsoleColor.DarkYellow;
                     Console.WriteLine("Invalid Input. Try Again...");
-                    return;
+                    continue;
                 }
 
                 Random random = new Random();
@@ -95,13 +93,14 @@ namespace RockPaperScissors
                 }
                 else
                 {
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
                     Console.WriteLine("This game was a draw");
                     equalsCounter++;
                 }
 
                 gameCounter--;
             }
-
+            Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine();
             Console.WriteLine("SCORE");
             Console.WriteLine($"Wins: {winsCounter}");
